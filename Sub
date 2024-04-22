@@ -1,0 +1,177 @@
+{
+  "log": {
+    "disabled": true,
+    "level": "panic"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "Internet-dns",
+        "address": "https://8.8.8.8/dns-query",
+        "address_resolver": "direct-dns",
+        "detour": "Internet"
+      },
+      {
+        "tag": "Best Latency-dns",
+        "address": "https://8.8.8.8/dns-query",
+        "address_resolver": "direct-dns",
+        "detour": "Best Latency"
+      },
+      {
+        "tag": "direct-dns",
+        "address": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "block-dns",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "Internet",
+        "server": "Internet-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "outbound": "Best Latency",
+        "server": "Best Latency-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "outbound": "direct",
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "outbound": "any",
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      }
+    ],
+    "disable_expire": true
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "mtu": 9000,
+      "inet4_address": "172.19.0.1/30",
+      "inet6_address": "fdfe:dcba:9876::1/126",
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "mixed",
+      "sniff": true
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "0.0.0.0",
+      "listen_port": 2080,
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "Internet",
+      "outbounds": [
+        "Best Latency",
+        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
+        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "Best Latency",
+      "outbounds": [
+        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
+        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐"
+      ],
+      "url": "http://www.google.com/generate_204",
+      "interval": "10m0s",
+      "tolerance": 50,
+      "idle_timeout": "30m0s"
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
+      "server": "37.27.84.192",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "EmdBRojW+aXe"
+      },
+      "password": "zjc+LBaCD7Jh",
+      "tls": {
+        "enabled": true,
+        "server_name": "candyman.segaro.tech",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACBd19FN7R9Ncqwf60ePhvYvxOcrGijnB3hqacu8BmUbdgAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
+      "server": "37.27.19.153",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "Azadiobfs10qpal"
+      },
+      "password": "Azadi1047hy2",
+      "tls": {
+        "enabled": true,
+        "server_name": "Let-Me-Cook.segaro.tech",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACDTb8vI1c4ltSPM7UuFzqYqjrqtuNG5qre6yKxJMjcqYAAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "port": 53,
+        "outbound": "dns-out"
+      }
+    ],
+    "final": "Internet",
+    "auto_detect_interface": true,
+    "override_android_vpn": true
+  }
+}
