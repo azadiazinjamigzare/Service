@@ -79,7 +79,9 @@
       "outbounds": [
         "Best Latency",
         "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
-        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐"
+        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
+        "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒"
       ]
     },
     {
@@ -87,7 +89,9 @@
       "tag": "Best Latency",
       "outbounds": [
         "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
-        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐"
+        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
+        "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒"
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
@@ -144,6 +148,58 @@
           "config": [
             "-----BEGIN ECH CONFIGS-----",
             "AFf+DQBTAAAgACDTb8vI1c4ltSPM7UuFzqYqjrqtuNG5qre6yKxJMjcqYAAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
+      "server": "85.224.20.110",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "e/pJmxEKoduh"
+      },
+      "password": "WQwvXHh3cMl7",
+      "tls": {
+        "enabled": true,
+        "server_name": "catchmeifyoucan.hideandsurf.com",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACCr026XJyLIO+yxLKQLAYIhn9j7vH7XJfkwnUVx9TGndgAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
+      "server": "158.179.22.147",
+      "server_port": 443,
+      "password": "azadi1",
+      "tls": {
+        "enabled": true,
+        "server_name": "azadi1.dgi000.store",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACCXFwt8fkiq4Q7jeLIa1lHyyUExIjVL0/a5/S2jMZZgcgAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
