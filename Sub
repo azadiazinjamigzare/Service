@@ -82,7 +82,8 @@
         "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
         "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
         "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓"
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓",
+        "🇩🇪 𝐀𝐳𝐚𝐝𝐢 𝟔"
       ]
     },
     {
@@ -93,7 +94,8 @@
         "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
         "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
         "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓"
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓",
+        "🇩🇪 𝐀𝐳𝐚𝐝𝐢 𝟔"
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
@@ -232,6 +234,34 @@
           "config": [
             "-----BEGIN ECH CONFIGS-----",
             "AFf+DQBTAAAgACA+jaA7SXc0+/M/uSXQZzBpaWqYU1h8U7OIKrGoTk7fZwAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 𝐀𝐳𝐚𝐝𝐢 𝟔",
+      "server": "78.47.226.238",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "c75vX6j71b7A"
+      },
+      "password": "X91KGKB4BwcO",
+      "tls": {
+        "enabled": true,
+        "server_name": "freedom.hideandsurf.com",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACBvM+oxUnK8yZ2RL2/JRxXPXncy4mxzgEehWKYRUahzVAAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
