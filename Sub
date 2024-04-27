@@ -9,17 +9,23 @@
         "tag": "Internet-dns",
         "address": "https://8.8.8.8/dns-query",
         "address_resolver": "direct-dns",
+        "address_strategy": "ipv4_only",
+        "strategy": "ipv4_only",
         "detour": "Internet"
       },
       {
         "tag": "Best Latency-dns",
         "address": "https://8.8.8.8/dns-query",
         "address_resolver": "direct-dns",
+        "address_strategy": "ipv4_only",
+        "strategy": "ipv4_only",
         "detour": "Best Latency"
       },
       {
         "tag": "direct-dns",
         "address": "local",
+        "address_strategy": "ipv4_only",
+        "strategy": "ipv4_only",
         "detour": "direct"
       },
       {
@@ -49,6 +55,7 @@
         "rewrite_ttl": 20
       }
     ],
+    "strategy": "ipv4_only",
     "disable_expire": true
   },
   "inbounds": [
@@ -58,7 +65,6 @@
       "interface_name": "tun0",
       "mtu": 9000,
       "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
       "auto_route": true,
       "strict_route": true,
       "stack": "mixed",
@@ -69,7 +75,8 @@
       "tag": "mixed-in",
       "listen": "0.0.0.0",
       "listen_port": 2080,
-      "sniff": true
+      "sniff": true,
+      "domain_strategy": "ipv4_only"
     }
   ],
   "outbounds": [
@@ -105,6 +112,7 @@
     {
       "type": "hysteria2",
       "tag": "🇳🇱 𝐈𝐑𝐂𝐏",
+      "domain_strategy": "ipv4_only",
       "server": "193.38.54.48",
       "server_port": 443,
       "obfs": {
@@ -133,6 +141,7 @@
     {
       "type": "hysteria2",
       "tag": "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
+      "domain_strategy": "ipv4_only",
       "server": "37.27.84.192",
       "server_port": 443,
       "obfs": {
@@ -161,6 +170,7 @@
     {
       "type": "hysteria2",
       "tag": "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
+      "domain_strategy": "ipv4_only",
       "server": "37.27.19.153",
       "server_port": 443,
       "obfs": {
@@ -189,6 +199,7 @@
     {
       "type": "hysteria2",
       "tag": "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
+      "domain_strategy": "ipv4_only",
       "server": "85.224.20.110",
       "server_port": 443,
       "obfs": {
@@ -217,6 +228,7 @@
     {
       "type": "hysteria2",
       "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
+      "domain_strategy": "ipv4_only",
       "server": "158.179.22.147",
       "server_port": 443,
       "password": "azadi1",
@@ -241,6 +253,7 @@
     {
       "type": "hysteria2",
       "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓",
+      "domain_strategy": "ipv4_only",
       "server": "158.179.16.247",
       "server_port": 443,
       "up_mbps": 10000,
@@ -291,5 +304,12 @@
     "final": "Internet",
     "auto_detect_interface": true,
     "override_android_vpn": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "cache.db",
+      "cache_id": "102938"
+    }
   }
 }
