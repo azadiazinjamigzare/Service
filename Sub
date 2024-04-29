@@ -86,11 +86,8 @@
       "outbounds": [
         "Best Latency",
         "🇳🇱 𝐈𝐑𝐂𝐏",
-        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
-        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
-        "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓"
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐"
       ]
     },
     {
@@ -98,11 +95,8 @@
       "tag": "Best Latency",
       "outbounds": [
         "🇳🇱 𝐈𝐑𝐂𝐏",
-        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
-        "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
-        "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓"
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐"
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
@@ -140,94 +134,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟏",
-      "domain_strategy": "ipv4_only",
-      "server": "37.27.84.192",
-      "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "EmdBRojW+aXe"
-      },
-      "password": "zjc+LBaCD7Jh",
-      "tls": {
-        "enabled": true,
-        "server_name": "candyman.segaro.tech",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACBd19FN7R9Ncqwf60ePhvYvxOcrGijnB3hqacu8BmUbdgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇮 𝐀𝐳𝐚𝐝𝐢 𝟐",
-      "domain_strategy": "ipv4_only",
-      "server": "37.27.19.153",
-      "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "Azadiobfs10qpal"
-      },
-      "password": "Azadi1047hy2",
-      "tls": {
-        "enabled": true,
-        "server_name": "Let-Me-Cook.segaro.tech",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACDTb8vI1c4ltSPM7UuFzqYqjrqtuNG5qre6yKxJMjcqYAAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇸🇪 𝐀𝐳𝐚𝐝𝐢 𝟑",
-      "domain_strategy": "ipv4_only",
-      "server": "85.224.20.110",
-      "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "e/pJmxEKoduh"
-      },
-      "password": "WQwvXHh3cMl7",
-      "tls": {
-        "enabled": true,
-        "server_name": "catchmeifyoucan.hideandsurf.com",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCr026XJyLIO+yxLKQLAYIhn9j7vH7XJfkwnUVx9TGndgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
-        }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟒",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
       "domain_strategy": "ipv4_only",
       "server": "158.179.22.147",
       "server_port": 443,
@@ -252,7 +159,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟓",
+      "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐",
       "domain_strategy": "ipv4_only",
       "server": "158.179.16.247",
       "server_port": 443,
@@ -309,7 +216,7 @@
     "cache_file": {
       "enabled": true,
       "path": "cache.db",
-      "cache_id": "azadi"
+      "cache_id": "ircp"
     }
   }
 }
