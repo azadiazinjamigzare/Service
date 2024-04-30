@@ -98,7 +98,7 @@
         "🇳🇱 𝐈𝐑𝐂𝐏",
         "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
         "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐",
-        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 3"
+        "🇦🇺 𝐀𝐳𝐚𝐝𝐢 3 "
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
@@ -200,7 +200,7 @@
       "down_mbps": 10000,
       "obfs": {
         "type": "salamander",
-        "password": "azadi"
+        "password": "azadi3"
       },
       "password": "azadi3",
       "tls": {
@@ -214,7 +214,7 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-             "AFf+DQBTAAAgACD/Gekjw/qqNtw2DF0FXUznDUUQpm6pYgisyYUnqn/CKQAIAAEA",
+"AFf+DQBTAAAgACCbXteRHXTt30OAU18ojqjAOCb+fq2qz259whXpVuf+JQAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
