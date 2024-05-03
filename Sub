@@ -118,7 +118,7 @@
       "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489",
       "tls": {
         "enabled": true,
-        "server_name": "let-him-cook.ircp.online",
+        "server_name": "LeT-HiM-CoOk.iRcP.OnLiNe",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
@@ -143,7 +143,7 @@
       "password": "azadi1",
       "tls": {
         "enabled": true,
-        "server_name": "azadi1.dgi000.store",
+        "server_name": "AzAdI1.dGi000.StOrE",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
@@ -174,7 +174,7 @@
       "password": "azadi2",
       "tls": {
         "enabled": true,
-        "server_name": "azadi2.dgi000.store",
+        "server_name": "AzAdI2.dGi000.StOrE",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
@@ -193,6 +193,7 @@
     {
       "type": "hysteria2",
       "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟑",
+      "domain_strategy": "ipv4_only",
       "server": "168.138.8.88",
       "server_port": 443,
       "up_mbps": 10000,
@@ -204,7 +205,7 @@
       "password": "azadi3",
       "tls": {
         "enabled": true,
-        "server_name": "azadi3.dgi000.store",
+        "server_name": "AzAdI3.dGi000.StOrE",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
