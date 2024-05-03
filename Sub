@@ -163,7 +163,7 @@
       "type": "hysteria2",
       "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟐",
       "domain_strategy": "ipv4_only",
-      "server": "158.179.16.247",
+      "server": "152.69.179.243",
       "server_port": 443,
       "up_mbps": 10000,
       "down_mbps": 10000,
