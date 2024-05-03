@@ -138,7 +138,7 @@
       "type": "hysteria2",
       "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
       "domain_strategy": "ipv4_only",
-      "server": "207.211.149.120",
+      "server": "152.69.189.181",
       "server_port": 443,
       "password": "azadi1",
       "tls": {
