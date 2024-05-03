@@ -253,7 +253,7 @@
     "cache_file": {
       "enabled": true,
       "path": "cache.db",
-      "cache_id": "ircp"
+      "cache_id": "azadi"
     }
   }
 }
