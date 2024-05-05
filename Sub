@@ -138,7 +138,7 @@
       "type": "hysteria2",
       "tag": "🇦🇺 𝐀𝐳𝐚𝐝𝐢 𝟏",
       "domain_strategy": "ipv4_only",
-      "server": "207.211.149.120",
+      "server": "152.69.179.155",
       "server_port": 443,
       "password": "azadi1",
       "tls": {
@@ -152,7 +152,7 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCXFwt8fkiq4Q7jeLIa1lHyyUExIjVL0/a5/S2jMZZgcgAIAAEA",
+             "AFf+DQBTAAAgACB4u436hfAkDe/FpuMFekdb9tO3/BF/kP6sVFgZpiyJVQAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
