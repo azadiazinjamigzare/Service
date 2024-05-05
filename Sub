@@ -140,7 +140,7 @@
       "domain_strategy": "ipv4_only",
       "server": "152.69.179.155",
       "server_port": 443,
-"obfs": {
+      "obfs": {
         "type": "salamander",
         "password": "azadi1"
       },
