@@ -235,7 +235,7 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-             "AFf+DQBTAAAgACB4u436hfAkDe/FpuMFekdb9tO3/BF/kP6sVFgZpiyJVQAIAAEA",
+            "AFf+DQBTAAAgACB4u436hfAkDe/FpuMFekdb9tO3/BF/kP6sVFgZpiyJVQAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
