@@ -441,7 +441,7 @@
     {
       "type": "hysteria2",
       "tag": "🇸🇪 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § hy2+ech",
-      "server": "83.226.36.112",
+      "server": "85.230.209.10",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
@@ -479,7 +479,7 @@
     {
       "type": "shadowtls",
       "tag": "stl-se",
-      "server": "83.226.36.112",
+      "server": "85.230.209.10",
       "server_port": 9443,
       "version": 3,
       "password": "bqmnECAg8mGe4MwsZopppA==",
