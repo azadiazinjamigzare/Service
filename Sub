@@ -131,18 +131,18 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech",
-      "domain_strategy": "prefer_ipv6",
-      "server": "h.88981401.xyz",
+      "tag": "🇦🇺 Azadi 2",
+      "domain_strategy": "ipv4_only",
+      "server": "207.211.148.185",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
-        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489"
+        "password": "azadi2"
       },
-      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489",
+      "password": "azadi2",
       "tls": {
         "enabled": true,
-        "server_name": "let-him-cook.ircp.online",
+        "server_name": "azadi2.dgi000.store",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
@@ -151,8 +151,8 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCc2kqEYGusiYc5fj1smMpQJYQLckpS1bgOaCDLvoiofgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "AFf+DQBTAAAgACCkinnV7xhAgfgYMag1gZvWrsODivfQnc24kR2wTsH1RgAIAAEA",
+        "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
         }
