@@ -103,7 +103,7 @@
       "type": "hysteria2",
       "tag": "🇦🇺 Australia",
       "domain_strategy": "ipv4_only",
-      "server": "207.211.148.185",
+      "server": "158.179.26.215",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
