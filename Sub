@@ -15,7 +15,7 @@
       },
       {
         "tag": "Best Latency-dns",
-        "address": "https://8.8.8.8/dns-query",
+        "address": "https://8.8.8.8/dns-query"",
         "address_resolver": "direct-dns",
         "address_strategy": "prefer_ipv6",
         "strategy": "prefer_ipv6",
@@ -80,7 +80,7 @@
         "rewrite_ttl": 20
       }
     ],
-    "strategy": "prefer_ipv6",
+    "strategy": "ipv4_only",
     "disable_expire": true
   },
   "inbounds": [
@@ -196,9 +196,9 @@
       "server_port": 443,
       "obfs": {
         "type": "salamander",
-        "password": "@azadi_az_inja_migzare-29cf96e6-8008-4233-a883-4b5daeb72309"
+        "password": "@JavidnamanIran-29cf96e6-8008-4233-a883-4b5daeb72309"
       },
-      "password": "@azadi_az_inja_migzare-29cf96e6-8008-4233-a883-4b5daeb72309",
+      "password": "@JavidnamanIran-29cf96e6-8008-4233-a883-4b5daeb72309",
       "tls": {
         "enabled": true,
         "server_name": "all-in.seyed-ali-khamenei-binamous.site",
@@ -237,7 +237,7 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/@azadi_az_inja_migzare",
+        "path": "/@JavidnamanIran",
         "headers": {
           "Host": "all-in-cdn.seyed-ali-khamenei-binamous.site"
         }
@@ -266,7 +266,8 @@
           "enabled": true,
           "pq_signature_schemes_enabled": true,
           "config": [
-            "-----BEGIN ECH CONFIGS-----", "AFf+DQBTAAAgACCkinnV7xhAgfgYMag1gZvWrsODivfQnc24kR2wTsH1RgAIAAEA",
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACCkinnV7xhAgfgYMag1gZvWrsODivfQnc24kR2wTsH1RgAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
@@ -306,7 +307,7 @@
       "enabled": true,
       "path": "cache.db",
       "cache_id": "azadi",
-      "rdrc_timeout": "168h0m0s"
+      "store_fakeip": true
     }
   }
 }
