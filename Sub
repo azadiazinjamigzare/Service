@@ -7,25 +7,20 @@
     "servers": [
       {
         "tag": "Internet-dns",
-        "address": "https://8.8.8.8/dns-query",
-        "address_resolver": "direct-dns",
-        "address_strategy": "prefer_ipv6",
-        "strategy": "prefer_ipv6",
+        "address": "tcp://94.140.14.14",
+        "strategy": "prefer_ipv4",
         "detour": "Internet"
       },
       {
         "tag": "Best Latency-dns",
-        "address": "https://8.8.8.8/dns-query",
-        "address_resolver": "direct-dns",
-        "address_strategy": "prefer_ipv6",
-        "strategy": "prefer_ipv6",
+        "address": "fakeip",
+        "strategy": "prefer_ipv4",
         "detour": "Best Latency"
       },
       {
         "tag": "direct-dns",
         "address": "local",
-        "address_strategy": "prefer_ipv6",
-        "strategy": "prefer_ipv6",
+        "strategy": "prefer_ipv4",
         "detour": "direct"
       },
       {
@@ -35,28 +30,32 @@
     ],
     "rules": [
       {
-        "domain_suffix": [
-          ".arpa.",
-          ".arpa"
-        ],
-        "server": "block-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "domain_suffix": [
-          "h.88981401.xyz",
-          "arvancloudstatus.ir",
-          "all-in.daiijannapoleon.fun",
-          "arvancloudstatus.ir",
-          "azadi2.dgi000.store"
-        ],
-        "server": "direct-dns",
-        "rewrite_ttl": 20
+        "domain": "www.google.com",
+        "server": "Internet-dns",
+        "rewrite_ttl": 3000
       },
       {
         "network": "udp",
         "port": 443,
         "server": "block-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "clash_mode": "Save Battery",
+        "server": "Internet-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "domain_regex": [
+          ".*\\.ir$",
+          ".*\\.xn--mgba3a4f16a$"
+        ],
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      },
+      {
+        "rule_set": "geosite-ir",
+        "server": "direct-dns",
         "rewrite_ttl": 20
       },
       {
@@ -80,7 +79,13 @@
         "rewrite_ttl": 20
       }
     ],
-    "strategy": "ipv4_only",
+    "final": "Internet-dns",
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
+    "strategy": "prefer_ipv4",
     "disable_expire": true
   },
   "inbounds": [
@@ -90,10 +95,13 @@
       "interface_name": "tun0",
       "mtu": 9000,
       "inet4_address": "172.19.0.1/30",
+      "inet6_address": "fdfe:dcba:9876::1/126",
       "auto_route": true,
       "strict_route": true,
       "stack": "mixed",
-      "sniff": true
+      "sniff": true,
+      "sniff_override_destination": true,
+      "domain_strategy": "prefer_ipv4"
     },
     {
       "type": "mixed",
@@ -101,7 +109,19 @@
       "listen": "0.0.0.0",
       "listen_port": 2080,
       "sniff": true,
-      "domain_strategy": "prefer_ipv6"
+      "sniff_override_destination": true,
+      "domain_strategy": "prefer_ipv4"
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "0.0.0.0",
+      "listen_port": 6450,
+      "sniff": true,
+      "sniff_override_destination": true,
+      "domain_strategy": "prefer_ipv4",
+      "override_address": "8.8.8.8",
+      "override_port": 53
     }
   ],
   "outbounds": [
@@ -110,42 +130,38 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech",
-        "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § vl+ws+tls+cdn+frag",
-        "🇩🇪🇸🇪🇫🇮 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § hy2+ech",
-        "🇩🇪🇸🇪🇫🇮 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § vl+ws+tls+cdn+frag",
-        "🇦🇺 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § hy2+ech"
+        "🇦🇺 AUS",
+        "🇨🇭 CHE 1",
+        "🇨🇭 CHE 2"
       ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech",
-        "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § vl+ws+tls+cdn+frag",
-        "🇩🇪🇸🇪🇫🇮 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § hy2+ech",
-        "🇩🇪🇸🇪🇫🇮 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § vl+ws+tls+cdn+frag",
-        "🇦🇺 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § hy2+ech"
+        "🇦🇺 AUS",
+        "🇨🇭 CHE 1",
+        "🇨🇭 CHE 2"
       ],
       "url": "http://www.google.com/generate_204",
-      "interval": "10m0s",
-      "tolerance": 50,
-      "idle_timeout": "30m0s"
+      "interval": "3m0s",
+      "tolerance": 1,
+      "idle_timeout": "9m0s"
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech",
-      "domain_strategy": "prefer_ipv6",
-      "server": "h.88981401.xyz",
+      "tag": "🇦🇺 AUS",
+      "domain_strategy": "prefer_ipv4",
+      "server": "a3.dgi000.store",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
-        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489"
+        "password": "@azadi_az_inja_migzare"
       },
-      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489",
+      "password": "@azadi_az_inja_migzare",
       "tls": {
         "enabled": true,
-        "server_name": "let-him-cook.ircp.online",
+        "server_name": "a3.dgi000.store",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
@@ -154,54 +170,27 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCc2kqEYGusiYc5fj1smMpQJYQLckpS1bgOaCDLvoiofgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "AEr+DQBGAAAgACBoVfT5U4PSPvvVSpNi79VLjF+rECqnsFGmNm1236RcNQAIAAEA",
+            "AQABAAMAE2F6YWRpMi5rcGxsNDkuc3BhY2UAAA==",
             "-----END ECH CONFIGS-----"
           ]
         }
       }
     },
     {
-      "type": "vless",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § vl+ws+tls+cdn+frag",
-      "domain_strategy": "prefer_ipv6",
-      "server": "arvancloudstatus.ir",
-      "server_port": 443,
-      "uuid": "5bdf790f-0af2-4481-a624-41b66e7e3489",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.ircp.online",
-        "alpn": "http/1.1",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/@ln2ray",
-        "headers": {
-          "Host": "cdn.ircp.online"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
       "type": "hysteria2",
-      "tag": "🇩🇪🇸🇪🇫🇮 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § hy2+ech",
-      "domain_strategy": "prefer_ipv6",
-      "server": "all-in.daiijannapoleon.fun",
+      "tag": "🇨🇭 CHE 1",
+      "domain_strategy": "prefer_ipv4",
+      "server": "a1.dgi000.store",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
-        "password": "@JavidnamanIran-29cf96e6-8008-4233-a883-4b5daeb72309"
+        "password": "@azadi_az_inja_migzare"
       },
-      "password": "@JavidnamanIran-29cf96e6-8008-4233-a883-4b5daeb72309",
+      "password": "@azadi_az_inja_migzare",
       "tls": {
         "enabled": true,
-        "server_name": "all-in.seyed-ali-khamenei-binamous.site",
+        "server_name": "a1.dgi000.store",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
@@ -210,55 +199,27 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACDvMP0oe54OZPicZE/p+nkwrcMOAeWte99Ye2i7BbTwHgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "AEr+DQBGAAAgACBoVfT5U4PSPvvVSpNi79VLjF+rECqnsFGmNm1236RcNQAIAAEA",
+            "AQABAAMAE2F6YWRpMi5rcGxsNDkuc3BhY2UAAA==",
             "-----END ECH CONFIGS-----"
           ]
         }
       }
     },
     {
-      "type": "vless",
-      "tag": "🇩🇪🇸🇪🇫🇮 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § vl+ws+tls+cdn+frag",
-      "domain_strategy": "prefer_ipv6",
-      "server": "arvancloudstatus.ir",
-      "server_port": 443,
-      "uuid": "29cf96e6-8008-4233-a883-4b5daeb72309",
-      "tls": {
-        "enabled": true,
-        "server_name": "all-in-cdn.seyed-ali-khamenei-binamous.site",
-        "alpn": "http/1.1",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/@JavidnamanIran",
-        "headers": {
-          "Host": "all-in-cdn.seyed-ali-khamenei-binamous.site"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
       "type": "hysteria2",
-      "tag": "🇦🇺 𝐅𝐮𝐜𝐤 𝐒𝐞𝐝𝐢𝐭𝐢𝐨𝐧 𝐨𝐟 𝟏𝟑𝟓𝟕\n@azadi_az_inja_migzare § hy2+ech",
-      "domain_strategy": "ipv4_only",
-      "server": "azadi2.dgi000.store",
+      "tag": "🇨🇭 CHE 2",
+      "domain_strategy": "prefer_ipv4",
+      "server": "a2.dgi000.store",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
-        "password": "azadi2"
+        "password": "@azadi_az_inja_migzare"
       },
-      "password": "azadi2",
+      "password": "@azadi_az_inja_migzare",
       "tls": {
         "enabled": true,
-        "server_name": "azadi2.dgi000.store",
-        "insecure": true,
+        "server_name": "a2.dgi000.store",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
@@ -267,8 +228,8 @@
           "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCkinnV7xhAgfgYMag1gZvWrsODivfQnc24kR2wTsH1RgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "AEr+DQBGAAAgACBoVfT5U4PSPvvVSpNi79VLjF+rECqnsFGmNm1236RcNQAIAAEA",
+            "AQABAAMAE2F6YWRpMi5rcGxsNDkuc3BhY2UAAA==",
             "-----END ECH CONFIGS-----"
           ]
         }
@@ -290,12 +251,69 @@
   "route": {
     "rules": [
       {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
         "port": 53,
         "outbound": "dns-out"
       },
       {
+        "network": "udp",
+        "port": 443,
+        "outbound": "block"
+      },
+      {
+        "clash_mode": "Save Battery",
+        "outbound": "Internet"
+      },
+      {
+        "protocol": "stun",
+        "outbound": "block"
+      },
+      {
+        "ip_cidr": [
+          "10.10.34.34",
+          "10.10.34.35",
+          "10.10.34.36"
+        ],
+        "outbound": "block"
+      },
+      {
         "ip_is_private": true,
         "outbound": "direct"
+      },
+      {
+        "domain_regex": [
+          ".*\\.ir$",
+          ".*\\.xn--mgba3a4f16a$"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "rule_set": [
+          "geoip-ir",
+          "geosite-ir"
+        ],
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
+        "download_detour": "direct",
+        "update_interval": "168h0m0s"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-ir",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
+        "download_detour": "direct",
+        "update_interval": "168h0m0s"
       }
     ],
     "final": "Internet",
@@ -306,8 +324,13 @@
     "cache_file": {
       "enabled": true,
       "path": "cache.db",
-      "cache_id": "azadi",
-      "store_fakeip": true
+      "cache_id": "saeed",
+      "store_fakeip": true,
+      "store_rdrc": true,
+      "rdrc_timeout": "168h0m0s"
+    },
+    "clash_api": {
+      "default_mode": "Bypass .ir"
     }
   }
 }
