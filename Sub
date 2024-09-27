@@ -134,7 +134,8 @@
       "outbounds": [
         "Best Latency",
         "🇨🇭 Azadi 1",
-        "🇺🇲 Azadi"
+        "🇺🇲 Azadi",
+        "🇺🇲 Azadi IPv6"
       ]
     },
     {
@@ -142,7 +143,8 @@
       "tag": "Best Latency",
       "outbounds": [
         "🇨🇭 Azadi 1",
-        "🇺🇲 Azadi"
+        "🇺🇲 Azadi",
+        "🇺🇲 Azadi IPv6"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "3m0s",
@@ -182,6 +184,35 @@
       "type": "hysteria2",
       "tag": "🇺🇲 Azadi",
       "domain_strategy": "prefer_ipv4",
+      "server": "all-v6.dgi000.store",
+      "server_port": 443,
+      "obfs": {
+        "type": "salamander",
+        "password": "@azadi_az_inja_migzare"
+      },
+      "password": "@azadi_az_inja_migzare",
+      "tls": {
+        "enabled": true,
+        "server_name": "all-v6.dgi000.store",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEb+DQBCAAAgACAzj8BolIG68jc1kgCeQ2Fg2cDQcw5KvTycY6MwW6kMdAAIAAEA",
+            "AQABAAMAD0E0LmRnaTAwMC5zdG9yZQAA",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇲 Azadi IPv6",
+      "domain_strategy": "prefer_ipv6",
       "server": "all-v6.dgi000.store",
       "server_port": 443,
       "obfs": {
