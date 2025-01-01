@@ -7,19 +7,19 @@
     "servers": [
       {
         "tag": "Internet-dns",
-        "address": "tcp://1.1.1.2",
+        "address": "https://1.1.1.2/dns-query",
         "strategy": "prefer_ipv4",
         "detour": "Internet"
       },
       {
         "tag": "Best Latency-dns",
-        "address": "fakeip",
+        "address": "https://1.1.1.2/dns-query",
         "strategy": "prefer_ipv4",
         "detour": "Best Latency"
       },
       {
         "tag": "direct-dns",
-        "address": "tcp://8.8.8.8",
+        "address": "udp://8.8.8.8",
         "strategy": "prefer_ipv4",
         "detour": "direct"
       },
@@ -30,19 +30,12 @@
     ],
     "rules": [
       {
-        "domain_suffix": "all-v4.dgi000.store",
+        "domain": [
+          "h2.88981401.xyz",
+          "all-v4.dgi000.store",
+          "all-v6.cybsecguru.com"
+        ],
         "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "domain": "www.gstatic.com",
-        "server": "Internet-dns",
-        "rewrite_ttl": 3000
-      },
-      {
-        "network": "udp",
-        "port": 443,
-        "server": "block-dns",
         "rewrite_ttl": 20
       },
       {
@@ -72,29 +65,40 @@
         "outbound": "any",
         "server": "direct-dns",
         "rewrite_ttl": 20
+      },
+      {
+        "inbound": "tun-in",
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "server": "Best Latency-dns",
+        "disable_cache": true,
+        "rewrite_ttl": 20
       }
     ],
-    "final": "Internet-dns",
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15"
-    },
     "strategy": "prefer_ipv4",
-    "disable_expire": true
+    "independent_cache": true
   },
   "inbounds": [
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "tun0",
       "mtu": 9000,
+      "address": [
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
       "auto_route": true,
       "strict_route": true,
+      "route_exclude_address": [
+        "192.168.0.0/16",
+        "fc00::/7"
+      ],
       "stack": "mixed",
       "sniff": true,
       "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4",
-      "inet4_address": "172.19.0.1/30"
+      "domain_strategy": "prefer_ipv4"
     },
     {
       "type": "mixed",
@@ -104,17 +108,6 @@
       "sniff": true,
       "sniff_override_destination": true,
       "domain_strategy": "prefer_ipv4"
-    },
-    {
-      "type": "direct",
-      "tag": "dns-in",
-      "listen": "0.0.0.0",
-      "listen_port": 4050,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4",
-      "override_address": "8.8.8.8",
-      "override_port": 53
     }
   ],
   "outbounds": [
@@ -123,17 +116,20 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🇨🇭 Azadi"
-      ],
-      "default": "Best Latency"
+        "🇨🇭 Azadi",
+        "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
+        "🇩🇪 JNIR IPv6Only\n@JavidnamanIran"
+      ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🇨🇭 Azadi"
+        "🇨🇭 Azadi",
+        "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
+        "🇩🇪 JNIR IPv6Only\n@JavidnamanIran"
       ],
-      "url": "http://www.gstatic.com/generate_204",
+      "url": "http://www.gstatic.com",
       "interval": "3m0s",
       "tolerance": 1,
       "idle_timeout": "9m0s"
@@ -168,6 +164,55 @@
       }
     },
     {
+      "type": "hysteria2",
+      "tag": "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
+      "domain_strategy": "prefer_ipv6",
+      "server": "h2.88981401.xyz",
+      "server_port": 443,
+      "password": "yVdMahZlkkgk",
+      "tls": {
+        "enabled": true,
+        "server_name": "hy2.55994421.xyz",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "pq_signature_schemes_enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AFf+DQBTAAAgACBgC+U935o5TbXkGxia/GgQYBb3+goW2Z0l/6se3ObxZwAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇩🇪 JNIR IPv6Only\n@JavidnamanIran",
+      "domain_strategy": "prefer_ipv6",
+      "server": "all-v6.cybsecguru.com",
+      "server_port": 44441,
+      "uuid": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
+      "tls": {
+        "enabled": true,
+        "server_name": "tile.openstreetmap.org",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "h-tx4d8yBKf5Cevu1bPJZwrSxT3kCkaMESHBIofaalo",
+          "short_id": "be4243"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
       "type": "direct",
       "tag": "direct"
     },
@@ -183,16 +228,31 @@
   "route": {
     "rules": [
       {
-        "inbound": "dns-in",
-        "outbound": "dns-out"
-      },
-      {
         "port": 53,
         "outbound": "dns-out"
       },
       {
+        "network": "tcp",
+        "port": 853,
+        "outbound": "block"
+      },
+      {
         "network": "udp",
-        "port": 443,
+        "port": [
+          443,
+          853
+        ],
+        "outbound": "block"
+      },
+      {
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
         "outbound": "block"
       },
       {
@@ -205,13 +265,12 @@
       },
       {
         "domain_regex": [
-          ".*\\.i﻿r$",
+          ".*\\.ir$",
           ".*\\.xn--mgba3a4f16a$"
         ],
         "outbound": "direct"
       }
     ],
-    "final": "Internet",
     "auto_detect_interface": true,
     "override_android_vpn": true
   },
@@ -219,10 +278,7 @@
     "cache_file": {
       "enabled": true,
       "path": "cache.db",
-      "cache_id": "saeed",
-      "store_fakeip": true,
-      "store_rdrc": true,
-      "rdrc_timeout": "168h0m0s"
+      "cache_id": "saeed"
     }
   }
 }
