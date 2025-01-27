@@ -147,7 +147,7 @@
       "password": "@azadi_az_inja_migzare",
       "tls": {
         "enabled": true,
-        "server_name": "all-v4.kpll49.space",
+        "server_name": "all-v4.dgi000.store",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
