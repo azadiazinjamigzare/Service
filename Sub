@@ -7,25 +7,21 @@
     "servers": [
       {
         "tag": "Internet-dns",
-        "address": "https://1.1.1.2/dns-query",
-        "strategy": "prefer_ipv4",
+        "address": "udp://1.1.1.2",
+        "strategy": "ipv4_only",
         "detour": "Internet"
       },
       {
         "tag": "Best Latency-dns",
-        "address": "https://1.1.1.2/dns-query",
-        "strategy": "prefer_ipv4",
+        "address": "udp://1.1.1.2",
+        "strategy": "ipv4_only",
         "detour": "Best Latency"
       },
       {
         "tag": "direct-dns",
         "address": "udp://8.8.8.8",
-        "strategy": "prefer_ipv4",
+        "strategy": "ipv4_only",
         "detour": "direct"
-      },
-      {
-        "tag": "block-dns",
-        "address": "rcode://success"
       }
     ],
     "rules": [
@@ -57,27 +53,12 @@
         "rewrite_ttl": 20
       },
       {
-        "outbound": "direct",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
         "outbound": "any",
         "server": "direct-dns",
         "rewrite_ttl": 20
-      },
-      {
-        "inbound": "tun-in",
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
-        "server": "Best Latency-dns",
-        "disable_cache": true,
-        "rewrite_ttl": 20
       }
     ],
-    "strategy": "prefer_ipv4",
+    "strategy": "ipv4_only",
     "independent_cache": true
   },
   "inbounds": [
@@ -98,16 +79,7 @@
       "stack": "mixed",
       "sniff": true,
       "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
-    },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "0.0.0.0",
-      "listen_port": 4040,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
+      "domain_strategy": "ipv4_only"
     }
   ],
   "outbounds": [
@@ -117,6 +89,7 @@
       "outbounds": [
         "Best Latency",
         "🇨🇭 Azadi",
+        "🇩🇪 IRCP\n@Ln2Ray",
         "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
         "🇩🇪 JNIR IPv6Only\n@JavidnamanIran"
       ]
@@ -126,10 +99,11 @@
       "tag": "Best Latency",
       "outbounds": [
         "🇨🇭 Azadi",
+        "🇩🇪 IRCP\n@Ln2Ray",
         "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
         "🇩🇪 JNIR IPv6Only\n@JavidnamanIran"
       ],
-      "url": "http://www.gstatic.com",
+      "url": "http://detectportal.firefox.com",
       "interval": "3m0s",
       "tolerance": 1,
       "idle_timeout": "9m0s"
@@ -137,7 +111,7 @@
     {
       "type": "hysteria2",
       "tag": "🇨🇭 Azadi",
-      "domain_strategy": "prefer_ipv4",
+      "domain_strategy": "ipv4_only",
       "server": "all-v4.kpll49.space",
       "server_port": 443,
       "obfs": {
@@ -164,9 +138,26 @@
       }
     },
     {
+      "type": "vless",
+      "tag": "🇩🇪 IRCP\n@Ln2Ray",
+      "server": "mods.lnmarketplace.net",
+      "server_port": 443,
+      "uuid": "9e55e24c-8de9-4357-8a37-9cf1212c6491",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "server_name": "mods.lnmarketplace.net",
+        "alpn": "h2",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "randomized"
+        }
+      }
+    },
+    {
       "type": "hysteria2",
       "tag": "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
-      "domain_strategy": "prefer_ipv6",
+      "domain_strategy": "ipv6_only",
       "server": "h2.88981401.xyz",
       "server_port": 443,
       "password": "yVdMahZlkkgk",
@@ -191,7 +182,7 @@
     {
       "type": "vless",
       "tag": "🇩🇪 JNIR IPv6Only\n@JavidnamanIran",
-      "domain_strategy": "prefer_ipv6",
+      "domain_strategy": "ipv6_only",
       "server": "all-v6.cybsecguru.com",
       "server_port": 44441,
       "uuid": "ec8a65ad-aafc-4095-9b8c-ea10890ca629",
@@ -245,21 +236,6 @@
         "outbound": "block"
       },
       {
-        "source_ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
-        "ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
-        "outbound": "block"
-      },
-      {
-        "protocol": "stun",
-        "outbound": "block"
-      },
-      {
         "ip_is_private": true,
         "outbound": "direct"
       },
@@ -269,6 +245,21 @@
           ".*\\.xn--mgba3a4f16a$"
         ],
         "outbound": "direct"
+      },
+      {
+        "protocol": "stun",
+        "outbound": "block"
+      },
+      {
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ],
+        "outbound": "block"
       }
     ],
     "auto_detect_interface": true,
