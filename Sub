@@ -12,12 +12,6 @@
         "detour": "Internet"
       },
       {
-        "tag": "Best Latency-dns",
-        "address": "udp://1.1.1.2",
-        "strategy": "ipv4_only",
-        "detour": "Best Latency"
-      },
-      {
         "tag": "direct-dns",
         "address": "udp://8.8.8.8",
         "strategy": "ipv4_only",
@@ -26,11 +20,7 @@
     ],
     "rules": [
       {
-        "domain": [
-          "h2.88981401.xyz",
-          "all-v4.dgi000.store",
-          "all-v6.cybsecguru.com"
-        ],
+        "outbound": "any",
         "server": "direct-dns",
         "rewrite_ttl": 20
       },
@@ -39,21 +29,6 @@
           ".*\\.ir$",
           ".*\\.xn--mgba3a4f16a$"
         ],
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "Internet",
-        "server": "Internet-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "Best Latency",
-        "server": "Best Latency-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "any",
         "server": "direct-dns",
         "rewrite_ttl": 20
       }
@@ -77,8 +52,13 @@
         "fc00::/7"
       ],
       "stack": "mixed",
-      "sniff": true,
-      "sniff_override_destination": true,
+      "domain_strategy": "ipv4_only"
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "127.0.0.1",
+      "listen_port": 4040,
       "domain_strategy": "ipv4_only"
     }
   ],
@@ -88,7 +68,8 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🇨🇭 Azadi",
+        "🇬🇧 YAPC",
+        "🇬🇧 YAPC IPv6Only",
         "🇩🇪 IRCP\n@Ln2Ray",
         "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
         "🇩🇪 JNIR IPv6Only\n@JavidnamanIran"
@@ -98,40 +79,72 @@
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🇨🇭 Azadi",
+        "🇬🇧 YAPC",
+        "🇬🇧 YAPC IPv6Only",
         "🇩🇪 IRCP\n@Ln2Ray",
         "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
         "🇩🇪 JNIR IPv6Only\n@JavidnamanIran"
       ],
-      "url": "http://detectportal.firefox.com",
+      "url": "http://1.1.1.1/",
       "interval": "3m0s",
       "tolerance": 1,
       "idle_timeout": "9m0s"
     },
     {
       "type": "hysteria2",
-      "tag": "🇨🇭 Azadi",
+      "tag": "🇬🇧 YAPC",
       "domain_strategy": "ipv4_only",
-      "server": "all-v4.kpll49.space",
-      "server_port": 443,
+      "server": "yet-another-public-config-1.flazzard.com",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "30s",
       "obfs": {
         "type": "salamander",
-        "password": "@azadi_az_inja_migzare"
+        "password": "yet-another-public-config-1"
       },
-      "password": "@azadi_az_inja_migzare",
+      "password": "yet-another-public-config-1",
       "tls": {
         "enabled": true,
-        "server_name": "all-v4.dgi000.store",
+        "server_name": "yet-another-public-config-1.qpal.us.kg",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
         "ech": {
           "enabled": true,
-          "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AEb+DQBCAAAgACAzj8BolIG68jc1kgCeQ2Fg2cDQcw5KvTycY6MwW6kMdAAIAAEA",
-            "AQABAAMAD0E0LmRnaTAwMC5zdG9yZQAA",
+            "AEr+DQBGAAAgACCHxu43IXY1+1o63pQc6j+D64SYcIh7Mn2fhzLbSUp3RgAIAAEA",
+            "AQABAAMAE2hvbWEuY3lic2VjZ3VydS5jb20AAA==",
+            "-----END ECH CONFIGS-----"
+          ]
+        }
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇬🇧 YAPC IPv6Only",
+      "domain_strategy": "ipv6_only",
+      "server": "yet-another-public-config-1-ipv6.flazzard.com",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "10s",
+      "obfs": {
+        "type": "salamander",
+        "password": "yet-another-public-config-1"
+      },
+      "password": "yet-another-public-config-1",
+      "tls": {
+        "enabled": true,
+        "server_name": "yet-another-public-config-1.qpal.us.kg",
+        "alpn": "h3",
+        "min_version": "1.3",
+        "max_version": "1.3",
+        "ech": {
+          "enabled": true,
+          "config": [
+            "-----BEGIN ECH CONFIGS-----",
+            "AEr+DQBGAAAgACCHxu43IXY1+1o63pQc6j+D64SYcIh7Mn2fhzLbSUp3RgAIAAEA",
+            "AQABAAMAE2hvbWEuY3lic2VjZ3VydS5jb20AAA==",
             "-----END ECH CONFIGS-----"
           ]
         }
@@ -140,6 +153,7 @@
     {
       "type": "vless",
       "tag": "🇩🇪 IRCP\n@Ln2Ray",
+      "domain_strategy": "ipv4_only",
       "server": "mods.lnmarketplace.net",
       "server_port": 443,
       "uuid": "9e55e24c-8de9-4357-8a37-9cf1212c6491",
@@ -169,7 +183,6 @@
         "max_version": "1.3",
         "ech": {
           "enabled": true,
-          "pq_signature_schemes_enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
             "AFf+DQBTAAAgACBgC+U935o5TbXkGxia/GgQYBb3+goW2Z0l/6se3ObxZwAIAAEA",
@@ -206,26 +219,34 @@
     {
       "type": "direct",
       "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
     }
   ],
   "route": {
     "rules": [
       {
-        "port": 53,
-        "outbound": "dns-out"
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "inbound": "dns-in"
+          },
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "action": "hijack-dns"
       },
       {
         "network": "tcp",
         "port": 853,
-        "outbound": "block"
+        "action": "reject",
+        "method": "default"
       },
       {
         "network": "udp",
@@ -233,7 +254,8 @@
           443,
           853
         ],
-        "outbound": "block"
+        "action": "reject",
+        "method": "default"
       },
       {
         "ip_is_private": true,
@@ -248,7 +270,8 @@
       },
       {
         "protocol": "stun",
-        "outbound": "block"
+        "action": "reject",
+        "method": "default"
       },
       {
         "source_ip_cidr": [
@@ -259,7 +282,8 @@
           "224.0.0.0/3",
           "ff00::/8"
         ],
-        "outbound": "block"
+        "action": "reject",
+        "method": "default"
       }
     ],
     "auto_detect_interface": true,
