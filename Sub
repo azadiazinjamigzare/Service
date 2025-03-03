@@ -7,7 +7,7 @@
     "servers": [
       {
         "tag": "Internet-dns",
-        "address": "udp://1.1.1.2",
+        "address": "tcp://76.76.2.2",
         "strategy": "ipv4_only",
         "detour": "Internet"
       },
