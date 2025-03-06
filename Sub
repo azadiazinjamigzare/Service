@@ -173,8 +173,14 @@
       "tag": "🇩🇪 IRCP IPv6Only\n@Ln2Ray",
       "domain_strategy": "ipv6_only",
       "server": "h2.88981401.xyz",
-      "server_port": 443,
-      "password": "yVdMahZlkkgk",
+      "server_port": 0,
+      "server_ports": "35000:45000",
+      "hop_interval": "10s",
+      "obfs": {
+        "type": "salamander",
+        "password": "https://t.me/Ln2Ray"
+      },
+      "password": "https://t.me/Ln2Ray",
       "tls": {
         "enabled": true,
         "server_name": "hy2.55994421.xyz",
@@ -185,8 +191,8 @@
           "enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACBgC+U935o5TbXkGxia/GgQYBb3+goW2Z0l/6se3ObxZwAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+            "AEf+DQBDAAAgACAKHFZG05DKz5QUR6aUsLyv9E631XjvGvyPgwFxItgmFwAIAAEA",
+            "AQABAAMAEGh5Mi41NTk5NDQyMS54eXoAAA==",
             "-----END ECH CONFIGS-----"
           ]
         }
