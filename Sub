@@ -189,6 +189,7 @@
         "max_version": "1.3",
         "ech": {
           "enabled": true,
+          "dynamic_record_sizing_disabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
             "AEf+DQBDAAAgACAKHFZG05DKz5QUR6aUsLyv9E631XjvGvyPgwFxItgmFwAIAAEA",
