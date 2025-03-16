@@ -40,6 +40,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
+      "interface_name": "Azadi-VPN",
       "mtu": 9000,
       "address": "172.18.0.1/30",
       "auto_route": true,
@@ -71,7 +72,7 @@
         "🇬🇧 𝐘𝐀𝐏𝐂 IPv6",
         "🇩🇪 JNIR IPv6"
       ],
-      "url": "http://cp.cloudflare.com/",
+      "url": "http://1.1.1.1/",
       "interval": "3m0s",
       "tolerance": 1,
       "idle_timeout": "9m0s"
