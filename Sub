@@ -13,7 +13,7 @@
       },
       {
         "tag": "direct-dns",
-        "address": "udp://8.8.8.8",
+        "address": "local",
         "strategy": "ipv4_only",
         "detour": "direct"
       }
