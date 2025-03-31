@@ -59,9 +59,9 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🇬🇧 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
-        "🇬🇧 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
-        "🇬🇧 𝐘𝐀𝐏𝐂-2\n@azadi_az_inja_migzare",
+        "🇨🇭 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
+        "🇨🇭 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
+        "🇨🇭 𝐘𝐀𝐏𝐂-2\n@azadi_az_inja_migzare",
         "🇳🇱 IRCP\n@Ln2Ray",
         "🇩🇪 JNIR-IPv6\n@JavidnamanIran"
       ]
@@ -70,9 +70,9 @@
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🇬🇧 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
-        "🇬🇧 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
-        "🇬🇧 𝐘𝐀𝐏𝐂-2\n@azadi_az_inja_migzare",
+        "🇨🇭 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
+        "🇨🇭 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
+        "🇨🇭 𝐘𝐀𝐏𝐂-2\n@azadi_az_inja_migzare",
         "🇳🇱 IRCP\n@Ln2Ray",
         "🇩🇪 JNIR-IPv6\n@JavidnamanIran"
       ],
@@ -83,7 +83,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇬🇧 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
+      "tag": "🇨🇭 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
       "domain_strategy": "ipv4_only",
       "server": "YAPC-1.afshin.ir",
       "server_port": 0,
@@ -113,7 +113,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇬🇧 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
+      "tag": "🇨🇭 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
       "domain_strategy": "ipv6_only",
       "server": "YAPC-1.afshin.ir",
       "server_port": 0,
@@ -143,7 +143,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇬🇧 𝐘𝐀𝐏𝐂-2\n@azadi_az_inja_migzare",
+      "tag": "🇨🇭 𝐘𝐀𝐏𝐂-2\n@azadi_az_inja_migzare",
       "domain_strategy": "ipv4_only",
       "server": "YAPC-1.afshin.ir",
       "server_port": 443,
