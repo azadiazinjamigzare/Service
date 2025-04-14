@@ -59,24 +59,24 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🇩🇪 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
-        "🇩🇪 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
+        "🇩🇪 JNIR-1\n@azadi_az_inja_migzare",
+        "🇩🇪 JNIR-1-IPv6\n@azadi_az_inja_migzare",
         "🇨🇭 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
         "🇨🇭 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
         "🇳🇱 IRCP\n@Ln2Ray",
-        "🇩🇪 JNIR-IPv6\n@JavidnamanIran"
+        "🇩🇪 JNIR-2-IPv6\n@JavidnamanIran"
       ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🇩🇪 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
-        "🇩🇪 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
+        "🇩🇪 JNIR-1\n@azadi_az_inja_migzare",
+        "🇩🇪 JNIR-1-IPv6\n@azadi_az_inja_migzare",
         "🇨🇭 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
         "🇨🇭 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
         "🇳🇱 IRCP\n@Ln2Ray",
-        "🇩🇪 JNIR-IPv6\n@JavidnamanIran"
+        "🇩🇪 JNIR-2-IPv6\n@JavidnamanIran"
       ],
       "url": "http://1.1.1.1/",
       "interval": "3m0s",
@@ -85,7 +85,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇩🇪 𝐘𝐀𝐏𝐂-1\n@azadi_az_inja_migzare",
+      "tag": "🇩🇪 JNIR-1\n@azadi_az_inja_migzare",
       "domain_strategy": "ipv4_only",
       "server": "yapc-1.adamhayward.co.uk",
       "server_port": 0,
@@ -115,7 +115,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇩🇪 𝐘𝐀𝐏𝐂-1-IPv6\n@azadi_az_inja_migzare",
+      "tag": "🇩🇪 JNIR-1-IPv6\n@azadi_az_inja_migzare",
       "domain_strategy": "ipv6_only",
       "server": "yapc-1.adamhayward.co.uk",
       "server_port": 0,
@@ -235,7 +235,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪 JNIR-IPv6\n@JavidnamanIran",
+      "tag": "🇩🇪 JNIR-2-IPv6\n@JavidnamanIran",
       "domain_strategy": "ipv6_only",
       "server": "all-v6.cybsecguru.com",
       "server_port": 44441,
