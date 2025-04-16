@@ -197,7 +197,7 @@
           "enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACB4QyLNe4+9ATAtK4jJeFdGADbHswXQCpwkSJJO7TQcVAAIAAEA",
+            "AFf+DQBTAAAgACCHum87zr0DkKT8MYy8ForJLe0rEB5IOHMY5KlV60TeRQAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
@@ -226,7 +226,7 @@
           "enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACB4QyLNe4+9ATAtK4jJeFdGADbHswXQCpwkSJJO7TQcVAAIAAEA",
+            "AFf+DQBTAAAgACCHum87zr0DkKT8MYy8ForJLe0rEB5IOHMY5KlV60TeRQAIAAEA",
             "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
